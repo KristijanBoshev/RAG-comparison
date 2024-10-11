@@ -11,10 +11,11 @@ class Retrieval:
 
     def _create_vector_store(self):
         vector_store = Chroma.from_documents(
-            documents= document_ingest._loader,
             collection_name=collection_name,
-            embedding_function=document_ingest._embedding,
             persist_directory=persistent_directory,
+            documents= document_ingest._loader(),
+            embedding=document_ingest.embedding_model
+            
         )
         return vector_store
     
@@ -22,8 +23,8 @@ class Retrieval:
         vector_store = self._create_vector_store()
         retriever = vector_store.as_retriever(
             search_type="mmr",
-            search_kwargs={'k': 5, 'fetch_k': 50}
+            search_kwargs={'k': 5, 'fetch_k': 30}
         )
-        docs = retriever.get_relevant_documents(self.query)
+        docs = retriever.invoke(self.query)
         return docs
 
