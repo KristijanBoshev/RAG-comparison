@@ -22,10 +22,3 @@ class Ingest:
         documents = loader.load_and_split()
         return documents
     
-        
-    def _embedding(self):
-        split_docs = self._loader()
-
-        embeddings = self.embedding_model.embed_documents(split_docs)
-        return embeddings
-
