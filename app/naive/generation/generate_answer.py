@@ -25,7 +25,7 @@ class Generation:
         context = "\n".join([doc.page_content for doc in docs])
         return context
 
-    def generate_answer(self):
+    def _generate_answer(self):
         context = self._get_context()
         prompt = self._create_prompt()
         
