@@ -2,6 +2,9 @@
     "python.analysis.extraPaths": [
         "./app",
         "./app/naive",
-        "./app/configuration"
-    ]
+    ],
+
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportShadowedImports": "none"
+    },
 }
