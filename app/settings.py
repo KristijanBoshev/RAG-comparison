@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import os
 from typing import List
 
-# Load environment variables from a .env file (optional, if not already loaded elsewhere)
 load_dotenv()
 
 
@@ -15,7 +14,7 @@ class Settings(BaseSettings):
     QUERY: str = "Write comprehensive answer on what is multi-head attention and main benefits using it"
    
     # File configuration
-    FILE_PATH: str = "data/Attention.pdf"
+    FILE_PATH: str = "/Users/kristijanboshev/Library/GitHub/RAG-comparison/data/Attention.pdf"
 
     # Chroma configuration
     CHROMA_COLLECTION_NAME: str = 'collection'
@@ -39,8 +38,6 @@ class Settings(BaseSettings):
         
 
 
-# Initialize the settings object
 settings = Settings()
 
-# Accessing the settings:
-# You can now access the values using settings.OPENAI_API_KEY, settings.MODEL, etc.
+
