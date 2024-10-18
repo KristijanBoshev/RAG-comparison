@@ -1,6 +1,9 @@
 from app.naive.retrieval import retrieval
 from langchain_core.prompts import ChatPromptTemplate
 
+"""
+Class responsible for final generation
+"""
 
 class Generation:
     def __init__(self, query, llm):
@@ -21,7 +24,7 @@ class Generation:
         return prompt
 
     def _get_context(self):
-        docs = retrieval._assign_retriever()
+        docs = retrieval.tune_retriever()
         context = "\n".join([doc.page_content for doc in docs])
         return context
 
