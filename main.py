@@ -4,6 +4,7 @@ from app.settings import settings
 from app.graph.generate import generate
 
 
+
 def main():
 
     generate_answer = generate._generate_answer()
@@ -18,7 +19,7 @@ def main():
     
     kg = generate.run(query=settings.QUERY)
     print("Knowledge Graph:  ", kg)
-   
+
   
 
 if __name__ == '__main__':
