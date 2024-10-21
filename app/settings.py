@@ -30,7 +30,12 @@ class Settings(BaseSettings):
             "https://medium.com/@sachinsoni600517/multi-head-attention-in-transformers-1dd087e05d41",
             ]
     
-    
+    # Neo4j credentials
+    NEO4J_URI: str = os.getenv("NEO4J_URI")
+    NEO4J_USERNAME:str = os.getenv("NEO4J_USERNAME")
+    NEO4J_PASSWORD: str = os.getenv("NEO4J_PASSWORD")
+    AURA_INSTANCEID: str = os.getenv("AURA_INSTANCEID")
+    AURA_INSTANCENAME:str = os.getenv("AURA_INSTANCENAME") 
 
     class Config:
         env_file_encoding = "utf-8"  # Ensure the env file is read with UTF-8 encoding
