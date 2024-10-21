@@ -1,6 +1,8 @@
-"""
+
 from pydantic import BaseModel, Field
 
+#Model that may be used in some scenarios
+"""
 class GradeDocuments(BaseModel):
 
     binary_score: str = Field(
@@ -9,4 +11,14 @@ class GradeDocuments(BaseModel):
     
     
     """
-    #Model that may be used in some scenarios
+    
+class Entities(BaseModel):
+    """Identifying information about entities."""
+
+    names: list[str] = Field(
+        ...,
+        description="All the person, organization, or business entities that "
+        "appear in the text",
+    )
+
+        
