@@ -35,7 +35,32 @@ class Settings(BaseSettings):
     NEO4J_USERNAME:str = os.getenv("NEO4J_USERNAME")
     NEO4J_PASSWORD: str = os.getenv("NEO4J_PASSWORD")
     AURA_INSTANCEID: str = os.getenv("AURA_INSTANCEID")
-    AURA_INSTANCENAME:str = os.getenv("AURA_INSTANCENAME") 
+    AURA_INSTANCENAME:str = os.getenv("AURA_INSTANCENAME")
+    
+    GROUND_TRUTH: str = """Instead of performing a single attention function with dmodel-dimensional keys, values and queries, \
+we found it beneficial to linearly project the queries, keys and values h times with different, learned \
+linear projections to dk, dk and dv dimensions, respectively. On each of these projected versions of \
+queries, keys and values we then perform the attention function in parallel, yielding dv-dimensional \
+output values. These are concatenated and once again projected, resulting in the final values. \
+The Transformer uses multi-head attention in three different ways:
+
+• In "encoder-decoder attention" layers, the queries come from the previous decoder layer, \
+and the memory keys and values come from the output of the encoder. This allows every \
+position in the decoder to attend over all positions in the input sequence. This mimics the \
+typical encoder-decoder attention mechanisms in sequence-to-sequence models such as \
+[38, 2, 9].
+
+• The encoder contains self-attention layers. In a self-attention layer all of the keys, values \
+and queries come from the same place, in this case, the output of the previous layer in the \
+encoder. Each position in the encoder can attend to all positions in the previous layer of the \
+encoder.
+
+• Similarly, self-attention layers in the decoder allow each position in the decoder to attend to \
+all positions in the decoder up to and including that position. We need to prevent leftward \
+information flow in the decoder to preserve the auto-regressive property. We implement this \
+inside of scaled dot-product attention by masking out (setting to −∞) all values in the input \
+of the softmax which correspond to illegal connections."""
+
 
     class Config:
         env_file_encoding = "utf-8"  # Ensure the env file is read with UTF-8 encoding
