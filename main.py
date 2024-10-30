@@ -11,6 +11,7 @@ from app.graph.generate import generate
 from app.eval import evaluate
 
 
+
 def main():
 
     naive_generated_answer = generation._generate_answer()
@@ -28,6 +29,10 @@ def main():
     
     results = evaluate.evaluate_answers(naive_generated_answer, kg_generated_answer)
     print(results)
+
+    kg = generate.run(query=settings.QUERY)
+    print("Knowledge Graph:  ", kg)
+
   
 
 if __name__ == '__main__':
