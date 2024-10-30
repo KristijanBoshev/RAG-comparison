@@ -10,3 +10,5 @@ pydantic_settings==2.6.0
 python-dotenv==1.0.1
 scikit_learn==1.5.2
 typing_extensions==4.12.2
+ragas
+nltk
