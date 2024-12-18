@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     URLS: List[str] = ["https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853",
             "https://medium.com/@sachinsoni600517/multi-head-attention-in-transformers-1dd087e05d41",
             ]
-    
+    USER_AGENT:str = os.getenv('USER_AGENT')
     # Neo4j credentials
     NEO4J_URI: str = os.getenv("NEO4J_URI")
     NEO4J_USERNAME:str = os.getenv("NEO4J_USERNAME")
