@@ -14,13 +14,16 @@ from app.eval import evaluate
 
 def main():
 
-    naive_generated_answer = generation._generate_answer()
-    print(f'Naive Answer: {naive_generated_answer.content}')
+    tuning_method = 'sa'  # Choose your desired tuning method
+    naive_generated_answer = generation._generate_answer(tuning_technique=tuning_method)
+    print(f'Naive Answer (tuned with {tuning_method}): {naive_generated_answer.content}')
+
     
+    """
     initial_state = {
         "question": settings.QUERY
     }
-    
+   
     crag_generated_answer =crag.run(initial_state=initial_state)
     print(f'CRAG Answer: {crag_generated_answer}')
     
@@ -29,7 +32,7 @@ def main():
     
     results = evaluate.evaluate_answers(naive_generated_answer, kg_generated_answer)
     print(results)
-
+    """
   
 
 if __name__ == '__main__':
